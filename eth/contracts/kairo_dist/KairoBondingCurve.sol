@@ -40,7 +40,7 @@ contract KairoBondingCurve {
         require(_amount > 0 && _amount < kairo.totalSupply());
         require(kairo.transferFrom(msg.sender, address(this), _amount));
         uint256 gains =  _calcArea(_amount, false);
-        //kairo.burn(_amount);
+        kairo.burn(_amount);
         dai.transfer(msg.sender, gains);
     }
 
