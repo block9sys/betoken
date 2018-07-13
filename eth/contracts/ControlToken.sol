@@ -1,14 +1,15 @@
 pragma solidity ^0.4.24;
 
-import "openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/RBACMintableToken.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/PausableToken.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/BurnableToken.sol";
 import "./BetokenFund.sol";
 
 /**
  * @title The ERC20 smart contract for the Kairo token in the Betoken fund.
  * @author Zefram Lou (Zebang Liu)
  */
-contract ControlToken is MintableToken, PausableToken {
+contract ControlToken is RBACMintableToken, PausableToken, BurnableToken {
   using SafeMath for uint256;
 
   string public constant name = "Kairo";
